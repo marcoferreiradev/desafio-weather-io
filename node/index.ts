@@ -9,13 +9,13 @@ export default new Service({
 			Query
 		}
 	},
-	routes: {
-		robots: async ctx => {
-			const { response: res } = ctx;
-			res.set("Content-Type", "text/plain");
-			res.body = "User-agent:*\nDisallow:/";
+	// routes: {
+	// 	robots: async ctx => {
+	// 		const { response: res } = ctx;
+	// 		res.set("Content-Type", "text/plain");
+	// 		res.body = "User-agent:*\nDisallow:/";
 
-			return (res.status = 200);
-		}
-	}
+	// 		return (res.status = 200);
+	// 	}
+	// }
 });

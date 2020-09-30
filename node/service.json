@@ -4,10 +4,5 @@
 	"runtimeArgs": ["--max_old_space_size=800"],
 	"ttl": 300,
 	"timeout": 40,
-	"routes": {
-		"robots": {
-			"path": "/robots.txt",
-			"public": true
-		}
-	}
+	"routes": {}
 }
