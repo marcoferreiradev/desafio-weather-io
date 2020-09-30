@@ -1,7 +1,7 @@
 {
   "vendor": "corebiz",
   "name": "sandbox",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "builders": {
     "messages": "1.x",
     "assets": "0.x",
