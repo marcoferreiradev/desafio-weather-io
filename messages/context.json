@@ -2,5 +2,8 @@
   "store/sandbox.helloworld": "hello world!",
   "store/sandbox.text": "Text",
   "store/sandbox.image": "Image",
-  "store/sandbox.date": "Date"
+  "store/sandbox.date": "Date",
+  "admin-example.navigation.label": "Example admin",
+  "admin-example.hello-world": "",
+  "appframe.navigation.example": ""
 }

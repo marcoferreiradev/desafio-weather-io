@@ -2,5 +2,12 @@
   "store/sandbox.helloworld": "Hello, World!",
   "store/sandbox.text": "Text",
   "store/sandbox.image": "Image",
-  "store/sandbox.date": "Date"
+  "store/sandbox.date": "Date",
+  "admin-example.navigation.label-group": "Example admins",
+  "admin-example.navigation.label-details": "Example details",
+  "admin-example.navigation.label-table": "Example table",
+  "admin-example.navigation.search.kws": "test, mock, fake",
+  "admin-example.navigation.details.search.kws": "details, mock, test, hello",
+  "admin-example.navigation.table.search.kws": "table, mock, test, bye",
+  "admin-example.hello-world": "Example Admin"
 }

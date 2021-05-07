@@ -5,6 +5,7 @@
   "builders": {
     "messages": "1.x",
     "assets": "0.x",
+    "admin": "0.x",
     "styles": "2.x",
     "store": "0.x",
     "react": "3.x",
@@ -60,7 +61,5 @@
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema",
   "title": "Sandbox",
   "description": "A QA app to make tests",
-  "registries": [
-    "smartcheckout"
-  ]
+  "registries": ["smartcheckout"]
 }
