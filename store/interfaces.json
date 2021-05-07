@@ -1,5 +1,8 @@
 {
   "hello-world": {
-    "component":"HelloWorld"
+    "component": "HelloWorld"
+  },
+  "product-custom": {
+    "component": "ProductCustom"
   }
 }
