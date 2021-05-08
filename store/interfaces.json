@@ -4,5 +4,9 @@
   },
   "product-custom": {
     "component": "ProductCustom"
+  },
+  "has-children": {
+    "component": "HasChildren",
+    "composition": "children"
   }
 }

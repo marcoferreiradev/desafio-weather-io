@@ -2,6 +2,7 @@
   "store.home": {
     "blocks": [
       "hello-world",
+      "has-children",
       "list-context.image-list#demo",
       /* You can make references to blocks defined in other files.
        * For example, `flex-layout.row#deals` is defined in the `deals.json` file. */
@@ -14,6 +15,10 @@
       "rich-text#link",
       "newsletter"
     ]
+  },
+
+  "has-children": {
+    "children": ["rich-text#shelf-title"]
   },
 
   "hello-world": {
