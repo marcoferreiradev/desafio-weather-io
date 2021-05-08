@@ -4,6 +4,7 @@
       "hello-world",
       "has-children",
       "list-context.image-list#demo",
+      "slot-component",
       /* You can make references to blocks defined in other files.
        * For example, `flex-layout.row#deals` is defined in the `deals.json` file. */
       "__fold__.experimentalLazyAssets",
@@ -15,6 +16,13 @@
       "rich-text#link",
       "newsletter"
     ]
+  },
+
+  "slot-component": {
+    "props": {
+      "Text": "rich-text#shelf-title",
+      "Image": "image#deal1"
+    }
   },
 
   "has-children": {

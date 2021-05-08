@@ -8,5 +8,8 @@
   "has-children": {
     "component": "HasChildren",
     "composition": "children"
+  },
+  "slot-component": {
+    "component": "SlotComponent"
   }
 }
