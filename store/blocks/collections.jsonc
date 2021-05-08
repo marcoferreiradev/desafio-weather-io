@@ -1,0 +1,26 @@
+{
+  "store.custom#collection": {
+    "blocks": [
+      "rich-text#collection-example",
+      "search-result-layout.customQuery#collection"
+    ]
+  },
+  "rich-text#collection-example": {
+    "props": {
+      "text": "Collection Example"
+    }
+  },
+  "search-result-layout.customQuery#collection": {
+    "blocks": [
+      "search-result-layout.desktop",
+      "search-result-layout.mobile",
+      "search-not-found-layout"
+    ],
+    "props": {
+      "querySchema": {
+        "skusFilter": "FIRST_AVAILABLE",
+        "simulationBehavior": "skip"
+      }
+    }
+  }
+}
