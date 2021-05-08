@@ -36,8 +36,25 @@
       "showInstallments": true
     }
   },
+  "vtex.product-highlights@2.x:product-highlights": {
+    "props": {
+      "type": "collection",
+      "filter": {
+        "type": "show",
+        "highlightNames": ["Promo"]
+      }
+    },
+    "children": ["product-highlight-text"]
+  },
+  "product-highlight-text": {
+    "props": {
+      "message": ">>>{highlightName}<<<",
+      "blockClass": "boleto"
+    }
+  },
   "product-summary.shelf": {
     "children": [
+      "vtex.product-highlights@2.x:product-highlights",
       "stack-layout#prodsum",
       "product-summary-name",
       "product-rating-inline",
@@ -55,7 +72,7 @@
     "children": [
       "product-summary-image#shelf",
       "modal-trigger#quickview"
-      
+
     ]
   },
 

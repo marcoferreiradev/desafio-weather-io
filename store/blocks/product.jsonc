@@ -2,6 +2,7 @@
   "store.product": {
     "children": [
       "flex-layout.row#product-breadcrumb",
+      "vtex.product-highlights@2.x:product-highlights",
       "flex-layout.row#product-main",
       "flex-layout.row#description",
       "product-custom",
