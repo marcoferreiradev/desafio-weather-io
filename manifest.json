@@ -1,7 +1,7 @@
 {
   "vendor": "corebiz",
   "name": "sandbox",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "builders": {
     "messages": "1.x",
     "assets": "0.x",
@@ -63,5 +63,7 @@
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema",
   "title": "Sandbox",
   "description": "A QA app to make tests",
-  "registries": ["smartcheckout"]
+  "registries": [
+    "smartcheckout"
+  ]
 }
