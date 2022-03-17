@@ -1,6 +1,7 @@
 {
   "store.home": {
     "blocks": [
+      "weather-suggestion",
       "hello-world",
       "has-children",
       "list-context.image-list#demo",
@@ -30,7 +31,7 @@
   },
 
   "hello-world": {
-    "title": "Hello World Block!!!"
+    "title": "Hello World desafio meu parceiro!!!"
   },
 
   "shelf#home": {

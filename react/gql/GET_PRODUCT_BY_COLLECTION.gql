@@ -1,0 +1,5 @@
+query GET_PRODUCT_BY_COLLECTION($collection: String) {
+	products(collection: $collection) @context(provider: "vtex.search-graphql")  {
+    link
+  }
+}

@@ -11,5 +11,10 @@
   },
   "slot-component": {
     "component": "SlotComponent"
+  },
+  "weather-suggestion": {
+    "component": "WeatherSuggestion",
+    "composition": "children",
+    "render": "client"
   }
 }
