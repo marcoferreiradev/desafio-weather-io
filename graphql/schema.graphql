@@ -1,7 +1,9 @@
-type Query {
-
-	horaAtualServidor: String @cacheControl(scope: PRIVATE)
-
+type Weather {
+  clima: String
+  link: String
 }
 
-
+type Query {
+	# horaAtualServidor: String @cacheControl(scope: PRIVATE)
+  weather(localizacao: String!): Weather
+}

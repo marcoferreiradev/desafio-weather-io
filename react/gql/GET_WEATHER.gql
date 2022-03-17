@@ -1,0 +1,6 @@
+query GET_WEATHER($localizacao: String!) {
+  weather(localizacao: $localizacao) {
+    link,
+    clima
+  }
+}

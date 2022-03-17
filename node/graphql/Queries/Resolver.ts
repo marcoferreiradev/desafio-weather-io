@@ -1,7 +1,9 @@
-import { horaAtualServidor } from './HoraAtualServidor';
+// import { horaAtualServidor } from './HoraAtualServidor';
+import { weather } from './Weather'
 
 const Query = {
-	horaAtualServidor
-};
+  // horaAtualServidor,
+  weather,
+}
 
-export default Query;
+export default Query

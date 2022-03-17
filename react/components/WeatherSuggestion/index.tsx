@@ -4,6 +4,7 @@ import { ModalDialog } from 'vtex.styleguide'
 import { useQuery } from 'react-apollo'
 
 import GET_PRODUCT_BY_COLLECTION from '../../gql/GET_PRODUCT_BY_COLLECTION.gql'
+import GET_WEATHER from '../../gql/GET_WEATHER.gql'
 
 type WeatherSuggestionProps = {
   collectionHot: string
@@ -13,9 +14,17 @@ type WeatherSuggestionProps = {
 type Product = {
   Product: Properties
 }
-
 interface Properties {
-  link: string
+  link: String
+}
+
+type Weather = {
+  weather: WeatherData
+}
+
+type WeatherData = {
+  clima: String
+  link: String
 }
 
 const WeatherSuggestion: StorefrontFunctionComponent<
@@ -28,7 +37,14 @@ const WeatherSuggestion: StorefrontFunctionComponent<
     },
   })
 
+  const { data: responseWeather } = useQuery<Weather>(GET_WEATHER, {
+    variables: {
+      localizacao: 'São Roque',
+    },
+  })
+
   console.log('Data', data)
+  console.log('responseWeather', responseWeather)
 
   const handleModalToggle = () => setModalOpen(!modalOpen)
 
@@ -47,7 +63,8 @@ const WeatherSuggestion: StorefrontFunctionComponent<
         isOpen={modalOpen}
       >
         <h3 className="t-heading-3">Está muito calor né? </h3>
-        {collectionHot}
+        {responseWeather?.weather?.clima}
+        {/* {collectionHot} */}
         {collectionCold}
       </ModalDialog>
     </>
