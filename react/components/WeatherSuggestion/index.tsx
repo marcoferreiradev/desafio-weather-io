@@ -1,35 +1,34 @@
 import React, { useState } from 'react'
 import { ModalDialog } from 'vtex.styleguide'
 
-// import { useQuery } from 'react-apollo';
+import { useQuery } from 'react-apollo'
 
-// import GET_PRODUCT_BY_COLLECTION from '../../gql/GET_PRODUCT_BY_COLLECTION.gql'
+import GET_PRODUCT_BY_COLLECTION from '../../gql/GET_PRODUCT_BY_COLLECTION.gql'
 
 type WeatherSuggestionProps = {
   collectionHot: string
   collectionCold: string
 }
 
-// type Product = {
-//   Product: Properties
-// }
+type Product = {
+  Product: Properties
+}
 
-// interface Properties {
-// 	link: string
-// }
+interface Properties {
+  link: string
+}
 
-export default function WeatherSuggestion({
-  collectionHot,
-  collectionCold,
-}: WeatherSuggestionProps) {
+const WeatherSuggestion: StorefrontFunctionComponent<
+  WeatherSuggestionProps
+> = ({ collectionHot, collectionCold }) => {
   const [modalOpen, setModalOpen] = useState(true)
-  // const { data } = useQuery<Product>(GET_PRODUCT_BY_COLLECTION, {
-  // 	variables: {
-  // 		collection: collectionHot
-  // 	},
-  // })
+  const { data } = useQuery<Product>(GET_PRODUCT_BY_COLLECTION, {
+    variables: {
+      collection: collectionHot,
+    },
+  })
 
-  // console.log('Data', data);
+  console.log('Data', data)
 
   const handleModalToggle = () => setModalOpen(!modalOpen)
 
@@ -69,3 +68,5 @@ WeatherSuggestion.schema = {
     },
   },
 }
+
+export default WeatherSuggestion

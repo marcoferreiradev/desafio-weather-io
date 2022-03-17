@@ -58,12 +58,11 @@
     "vtex.modal-layout": "0.x",
     "vtex.store-link": "0.x",
     "vtex.product-gifts": "0.x",
-    "vtex.product-context": "0.x"
+    "vtex.product-context": "0.x",
+    "vtex.search-graphql": "0.x"
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema",
   "title": "Sandbox",
   "description": "A QA app to make tests",
-  "registries": [
-    "smartcheckout"
-  ]
+  "registries": ["smartcheckout"]
 }
