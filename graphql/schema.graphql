@@ -1,9 +1,10 @@
 type Weather {
   clima: String
   link: String
+  promotion: String
 }
 
 type Query {
 	# horaAtualServidor: String @cacheControl(scope: PRIVATE)
-  weather(localizacao: String!): Weather
+  weather(localizacao: String!, collectionHot: String!, collectionCold: String!): Weather
 }

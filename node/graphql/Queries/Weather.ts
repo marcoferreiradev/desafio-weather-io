@@ -18,7 +18,7 @@ const weather = async (_obj: any, _args: any, ctx: any) => {
     // console.log(data);
 
     console.log('args', _args)
-    console.log('args', _args.localizacao)
+    // console.log('args', _args.localizacao)
 
     const data = await weatherApi.getWeather(_args.localizacao)
     console.log(data)
@@ -27,8 +27,9 @@ const weather = async (_obj: any, _args: any, ctx: any) => {
     console.log(dataCollection)
 
     return {
-      clima: 'Quente',
-      link: 'testando.com',
+      clima: 'Está muito calor né?',
+      promotion: 'Que tal um sorvetinho?',
+      link: 'qualé',
     }
   } catch (error) {
     throw new GraphQLExtensionError(error)

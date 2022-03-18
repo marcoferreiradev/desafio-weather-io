@@ -3,7 +3,7 @@ import { ModalDialog } from 'vtex.styleguide'
 
 import { useQuery } from 'react-apollo'
 
-import GET_PRODUCT_BY_COLLECTION from '../../gql/GET_PRODUCT_BY_COLLECTION.gql'
+// import GET_PRODUCT_BY_COLLECTION from '../../gql/GET_PRODUCT_BY_COLLECTION.gql'
 import GET_WEATHER from '../../gql/GET_WEATHER.gql'
 
 type WeatherSuggestionProps = {
@@ -11,12 +11,12 @@ type WeatherSuggestionProps = {
   collectionCold: string
 }
 
-type Product = {
-  Product: Properties
-}
-interface Properties {
-  link: String
-}
+// type Product = {
+//   Product: Properties
+// }
+// interface Properties {
+//   link: String
+// }
 
 type Weather = {
   weather: WeatherData
@@ -25,26 +25,23 @@ type Weather = {
 type WeatherData = {
   clima: String
   link: String
+  promotion: String
 }
 
 const WeatherSuggestion: StorefrontFunctionComponent<
   WeatherSuggestionProps
 > = ({ collectionHot, collectionCold }) => {
   const [modalOpen, setModalOpen] = useState(true)
-  const { data } = useQuery<Product>(GET_PRODUCT_BY_COLLECTION, {
-    variables: {
-      collection: collectionHot,
-    },
-  })
 
   const { data: responseWeather } = useQuery<Weather>(GET_WEATHER, {
     variables: {
-      localizacao: 'São Roque',
+      localizacao: 'Aracariguama',
+      collectionHot,
+      collectionCold,
     },
   })
 
-  console.log('Data', data)
-  console.log('responseWeather', responseWeather)
+  if (!responseWeather?.weather) return null
 
   const handleModalToggle = () => setModalOpen(!modalOpen)
 
@@ -62,10 +59,11 @@ const WeatherSuggestion: StorefrontFunctionComponent<
         }}
         isOpen={modalOpen}
       >
-        <h3 className="t-heading-3">Está muito calor né? </h3>
-        {responseWeather?.weather?.clima}
-        {/* {collectionHot} */}
-        {collectionCold}
+        <h3 className="t-heading-3"> {responseWeather?.weather?.clima} </h3>
+        <p className="t-body lh-copy mw9">
+          {' '}
+          {responseWeather?.weather?.promotion}
+        </p>
       </ModalDialog>
     </>
   )
@@ -74,6 +72,7 @@ const WeatherSuggestion: StorefrontFunctionComponent<
 WeatherSuggestion.schema = {
   title: 'WeatherSuggestion',
   type: 'object',
+  required: ['collectionHot', 'collectionCold'],
   properties: {
     collectionHot: {
       title: 'Coleção de calor',

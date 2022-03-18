@@ -1,6 +1,7 @@
-query GET_WEATHER($localizacao: String!) {
-  weather(localizacao: $localizacao) {
+query GET_WEATHER($localizacao: String!, $collectionHot: String!, $collectionCold: String!) {
+  weather(localizacao: $localizacao, collectionHot: $collectionHot,collectionCold: $collectionCold) {
     link,
-    clima
+    clima,
+    promotion
   }
 }

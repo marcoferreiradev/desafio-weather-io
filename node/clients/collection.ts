@@ -12,7 +12,6 @@ export default class Collection extends ExternalClient {
   }
 
   public async getCollection(ctx: any, collectionId: any): Promise<any> {
-    console.log('ctx', ctx)
     return this.http.get(
       `https://${ctx.params.account}.vtexcommercestable.com.br/api/catalog_system/pub/products/search/?fq=productClusterIds:${collectionId}`
     )
