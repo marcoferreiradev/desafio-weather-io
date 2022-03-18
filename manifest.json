@@ -64,5 +64,14 @@
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema",
   "title": "Sandbox",
   "description": "A QA app to make tests",
-  "registries": ["smartcheckout"]
+  "registries": ["smartcheckout"],
+  "policies": [
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "goweather.herokuapp.com/",
+        "path": "/weather/*"
+      }
+    }
+  ]
 }

@@ -1,20 +1,11 @@
 {
-	"compilerOptions": {
-		"types": ["node", "xml2js", "jsontoxml"],
-		"typeRoots": ["node_modules/@types"],
-		"target": "es2017",
-		"alwaysStrict": true,
-		"module": "commonjs",
-		"sourceMap": false,
-		"outDir": "service",
-		"allowJs": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noImplicitThis": true
-	},
-	"typeAcquisition": {
-		"enable": false
-	},
-	"include": ["typings.d.ts", "./**/*"],
-	"exclude": ["node_modules"]
+  "extends": "@vtex/tsconfig",
+  "compilerOptions": {
+    "noEmitOnError": false,
+    "lib": ["dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "es2019"
+  },
+  "include": ["./typings/*.d.ts", "./**/*.tsx", "./**/*.ts"]
 }
