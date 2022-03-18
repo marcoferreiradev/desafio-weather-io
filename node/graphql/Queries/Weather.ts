@@ -10,7 +10,7 @@ const weather = async (_obj: any, _args: any, ctx: any) => {
   // 	}
   // });
   const {
-    clients: { weatherApi },
+    clients: { weatherApi, collection },
   } = ctx
   try {
     // const { data } = await http.get(`https://goweather.herokuapp.com/weather${_args.localizacao}`);
@@ -21,8 +21,10 @@ const weather = async (_obj: any, _args: any, ctx: any) => {
     console.log('args', _args.localizacao)
 
     const data = await weatherApi.getWeather(_args.localizacao)
-
     console.log(data)
+
+    const dataCollection = await collection.getCollection(ctx, '206')
+    console.log(dataCollection)
 
     return {
       clima: 'Quente',
