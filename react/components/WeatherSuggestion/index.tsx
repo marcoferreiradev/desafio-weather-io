@@ -23,9 +23,9 @@ type Weather = {
 }
 
 type WeatherData = {
-  clima: String
-  link: String
-  promotion: String
+  clima: string
+  link: string
+  promotion: string
 }
 
 const WeatherSuggestion: StorefrontFunctionComponent<
@@ -50,7 +50,9 @@ const WeatherSuggestion: StorefrontFunctionComponent<
       <ModalDialog
         centered
         confirmation={{
-          onClick: handleModalToggle,
+          onClick: () => {
+            window.location.href = responseWeather?.weather.link
+          },
           label: 'Opa eu quero',
         }}
         cancelation={{
