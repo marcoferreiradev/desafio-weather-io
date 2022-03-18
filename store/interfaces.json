@@ -2,9 +2,6 @@
   "hello-world": {
     "component": "HelloWorld"
   },
-  "product-custom": {
-    "component": "ProductCustom"
-  },
   "has-children": {
     "component": "HasChildren",
     "composition": "children"

@@ -59,6 +59,7 @@ const WeatherSuggestion: StorefrontFunctionComponent<
           onClick: handleModalToggle,
           label: 'Não valeu ',
         }}
+        onClose={handleModalToggle}
         isOpen={modalOpen}
       >
         <h3 className="t-heading-3"> {responseWeather?.weather?.clima} </h3>
