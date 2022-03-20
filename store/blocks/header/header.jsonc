@@ -10,7 +10,8 @@
       "flex-layout.row#1-desktop",
       "flex-layout.row#2-desktop",
       "flex-layout.row#3-desktop",
-      "sticky-layout#4-desktop"
+      "sticky-layout#4-desktop",
+      "flex-layout.row#5-desktop"
     ]
   },
 
@@ -96,6 +97,13 @@
       "width": "180"
     }
   },
+  "flex-layout.row#5-desktop": {
+    "children": ["flex-layout.col#user-location"]
+  },
+  "flex-layout.col#user-location": {
+    "children": ["user-location"]
+  },
+
   "header-layout.mobile": {
     "children": ["sticky-layout#1-mobile"]
   },

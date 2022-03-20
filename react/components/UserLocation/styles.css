@@ -1,0 +1,22 @@
+.LocationContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 0;
+}
+
+.LocationButton {
+  cursor: pointer;
+  border-radius: 100%;
+  border: 1px solid #03044e;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.LocationButton > svg {
+  color: #03044e;
+}

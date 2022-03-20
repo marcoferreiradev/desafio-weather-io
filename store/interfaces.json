@@ -13,5 +13,10 @@
     "component": "WeatherSuggestion",
     "composition": "children",
     "render": "client"
+  },
+  "user-location": {
+    "component": "UserLocation",
+    "composition": "children",
+    "render": "client"
   }
 }
