@@ -31,17 +31,20 @@ const ModalLocation: FC<Props> = ({ active, setOpenModal, setLocation }) => {
       `/api/checkout/pub/postal-code/BRA/${postalCodeInput}`
     )
     const { city, postalCode } = await response.json()
-
-    setLocation({
+    const locationData = {
       city,
       postalCode,
-    })
+    }
 
-    localStorage.setItem(
-      'locationInStorage',
-      JSON.stringify({
-        city,
-        postalCode,
+    setLocation(locationData)
+
+    localStorage.setItem('locationInStorage', JSON.stringify(locationData))
+
+    window.dispatchEvent(
+      new CustomEvent('location-data', {
+        detail: {
+          city,
+        },
       })
     )
 

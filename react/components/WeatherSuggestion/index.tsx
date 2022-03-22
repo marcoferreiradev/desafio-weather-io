@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ModalDialog } from 'vtex.styleguide'
+import { canUseDOM } from 'vtex.render-runtime'
 
-import { useQuery } from 'react-apollo'
+import { useLazyQuery } from 'react-apollo'
 
 // import GET_PRODUCT_BY_COLLECTION from '../../gql/GET_PRODUCT_BY_COLLECTION.gql'
 import GET_WEATHER from '../../gql/GET_WEATHER.gql'
@@ -18,32 +19,70 @@ type WeatherSuggestionProps = {
 //   link: String
 // }
 
-type Weather = {
-  weather: WeatherData
-}
+// type Weather = {
+//   weather: WeatherData
+// }
 
-type WeatherData = {
-  clima: string
-  link: string
-  promotion: string
-}
+// type WeatherData = {
+//   clima: string
+//   link: string
+//   promotion: string
+// }
 
 const WeatherSuggestion: StorefrontFunctionComponent<
   WeatherSuggestionProps
 > = ({ collectionHot, collectionCold }) => {
+  const [locationCity, setLocationCity] = useState('')
   const [modalOpen, setModalOpen] = useState(true)
 
-  const { data: responseWeather } = useQuery<Weather>(GET_WEATHER, {
-    variables: {
-      localizacao: 'Aracariguama',
-      collectionHot,
-      collectionCold,
-    },
-  })
-
-  if (!responseWeather?.weather) return null
+  const [getWeather, { data: responseWeather }] = useLazyQuery(GET_WEATHER)
 
   const handleModalToggle = () => setModalOpen(!modalOpen)
+
+  function getWeatherData(city: string) {
+    if (!city) return
+
+    const cityNormalized = city.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+
+    getWeather({
+      variables: {
+        localizacao: cityNormalized,
+        collectionHot,
+        collectionCold,
+      },
+    })
+  }
+
+  function getCityEvent(event: any) {
+    const {
+      detail: { city },
+    } = event
+    setLocationCity(city)
+  }
+
+  useEffect(() => {
+    getWeatherData(locationCity)
+  }, [locationCity])
+
+  useEffect(() => {
+    if (canUseDOM) {
+      const locationInStorage = localStorage.getItem('locationInStorage')
+      const locationCityInStorage = locationInStorage
+        ? JSON.parse(locationInStorage).city
+        : ''
+
+      locationCityInStorage && setLocationCity(locationCityInStorage)
+
+      window.addEventListener('location-data', getCityEvent)
+      return () => {
+        window.removeEventListener('location-data', getCityEvent)
+      }
+    } else {
+      return undefined
+    }
+  }, [])
+
+  if (!locationCity && !responseWeather?.weather?.clima) return null
 
   return (
     <>
@@ -64,7 +103,6 @@ const WeatherSuggestion: StorefrontFunctionComponent<
       >
         <h3 className="t-heading-3"> {responseWeather?.weather?.clima} </h3>
         <p className="t-body lh-copy mw9">
-          {' '}
           {responseWeather?.weather?.promotion}
         </p>
       </ModalDialog>
